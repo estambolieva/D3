@@ -4,4 +4,5 @@
 python -m SimpleHTTPServer
 '''  
   
- # 2. Then open a browser and see the visualization on localhost:8000/map.html  
+ # 2. Then open a browser and see the visualization on localhost:8000/map.html
+ ![This is how the visualization works](visualization.png)  
