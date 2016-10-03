@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    circle.dimple-series-1{
+      fill: red;
+    }
+
+    h2{
+      text-aligh: center;
+    }
+  </style>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+    <script type="text/javascript">
+      function draw(data) {
+      
+      /*
+        D3.js setup code
+      */
+
+          "use strict";
+          var margin = 75,
+              width = 1000 - margin,
+              height = 500 - margin;
+          
+          // add title to the page just before the chart
+          d3.select("body")
+            .append("h2")
+            .text("Big Companies Social Media Presence");
+
+          var svg = d3.select("body")
+            .append("svg")
+              .attr("width", width + margin)
+              .attr("height", height + margin)
+            .append('g')
+                .attr('class','chart');
+
+      /*
+        Dimple.js Chart construction code
+      */
+
+          var myChart = new dimple.chart(svg, data);
+          var x = myChart.addCategoryAxis("x", "company"); 
+          // remove the title of the x axis
+          x.title = "";
+          myChart.addMeasureAxis("y", "hits");
+          myChart.addMeasureAxis("z", "hits");
+          myChart.addSeries(null, dimple.plot.bubble);
+          myChart.draw();
+
+      /*
+        add a D3 x axis at the bottom to show logos
+      */
+
+      // IMPORTANT: for this to work there must be no white speaces between ^, = and '
+      svg.selectAll("[transform^='translate(0'] .tick")
+        .each( function(d) {
+         console.log("d", d);
+         var p = d3.select(this);
+         p.append("svg:image")
+         .attr("x", 30)
+         .attr("y", 10)
+         .attr("width", 60)
+         .attr("height", 60)
+         .attr("xlink:href","images/"+d+".jpg");
+     });
+
+      };
+
+      </script>
+  </head>
+<body>
+  <script type="text/javascript">
+  /*
+    Use D3 (not dimple.js) to load the TSV file
+    and pass the contents of it to the draw function
+    */
+  d3.csv("data/data.csv", draw);
+  </script>
+</body>
+</html>
