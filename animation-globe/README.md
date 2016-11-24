@@ -30,4 +30,11 @@ The buttons allow the user to click on an year of their choice independently of 
   
 ## How the visualization looks like  
   
-   
+1. Static and Thematic Map of world cup attendances  
+![Thematic Map](https://github.com/estambolieva/D3/blob/master/animation-globe/images/worldCup.png)  
+2. An Animation Frame of World Cup Attendance for year 1994  
+![1994](https://github.com/estambolieva/D3/blob/master/animation-globe/images/1994.PNG)    
+3. Added buttons to allow reader's interaction  
+![Buttons](https://github.com/estambolieva/D3/blob/master/animation-globe/images/worldCupButtons.PNG)  
+4. A view of a button clicked - example for 1986  
+![1986 - Button Clicked](https://github.com/estambolieva/D3/blob/master/animation-globe/images/worldCupButtonsClicked.PNG)  
